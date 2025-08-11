@@ -38,7 +38,7 @@
 
     let pedro = {
         "Nome"   : "Pedro",
-        "Idade"  : "31",
+        "Idade"  : "34",
         "Peso"   : "70",
         "Altura" : "1.76"
     }
