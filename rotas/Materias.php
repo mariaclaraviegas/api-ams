@@ -20,24 +20,23 @@ switch($metodoSolicitado){
         $dados_recebidos = json_decode(file_get_contents("php://input"), true);
         break;
     case "GET":
-
+         
         $servidor = "localhost"; 
         $usuario = "root"; 
         $senha = ""; 
         $banco = "aula_pw3";
 
         $conexao = new mysqli($servidor, $usuario, $senha, $banco);
-        
-        $sql = "Select * from Materias"
+
+        $sql = "Select * from materias";
 
         $resultado = $conexao->query($sql);
 
-        $materias = []
-        while ($linha = $resultado->fetch_assoc()){
-            $materias[] = $linhas;
+        $materias = [];
+        while ($linha = $resultado->fetch_assoc()) {
+            $materias[] = $linha;
         }
-
-        echo json_enconde ($materias);
+        echo json_encode($materias);
         break;    
 }
 

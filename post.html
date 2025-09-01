@@ -15,7 +15,7 @@
             <th>Nome</th>
             <th>Disponivel</th>
         </thead>
-        <tbody Id="CorpoTabela">
+        <tbody Id="corpoTabela">
 
         </tbody>
     </table>
@@ -40,31 +40,34 @@
         function atualizarTabela()
         {
              var url = "http://localhost/api-ams/rotas/materias.php"
-             fetch()
+             fetch(url)
              .then(resposta => resposta.json())
-             .then(dados => {
+             .then(dados=>{
                 console.log(dados)
                 dados.map((valor, indice)=>{
                     var tr = document.createElement("tr")
 
-                    var td_Id= document.createElement("td")
+                    var td_Id = document.createElement("td")
                     td_Id.innerText = valor.Id
 
-                    var td_Nome = document.createElement("td")
-                    td_Nome.innerText = valor.Nome
+                    var td_Materia = document.createElement("td")
+                    td_Materia.innerText = valor.Materia
 
                     var td_Disponivel = document.createElement("td")
                     td_Disponivel.innerText = valor.Disponivel
 
                     tr.append(td_Id)
-                    tr.append(td_Nome)
+                    tr.append(td_Materia)
                     tr.append(td_Disponivel)
+
+                    var tabela = document.getElementById("corpoTabela")
+                    tabela.appendChild(tr)
 
                 })
             })        
         }
 
-        atualizartabela()
+        atualizarTabela()
 
     </script>
 </body>
